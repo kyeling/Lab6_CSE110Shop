@@ -2,12 +2,10 @@
 
 window.addEventListener('DOMContentLoaded', () => {
   // TODO
-  if(localStorage.getItem('items') === null) {
-    fetch('https://fakestoreapi.com/products')
-      .then(response => response.json())
-      .then(json => localStorage.setItem('items', JSON.stringify(json)));
-  }
-  populatePage();
+  fetch('https://fakestoreapi.com/products')
+    .then(response => response.json())
+    .then(json => localStorage.setItem('items', JSON.stringify(json)))
+    .then(populatePage());
 });
 
 function populatePage() {
